@@ -1,0 +1,19 @@
+#RELEASE Location of external products
+# Run "gnumake clean uninstall install" in the application
+# top directory each time this file is changed.
+
+#NOTE: MSI moved to CONFIG_SITE.
+
+# SNCSEQ required only if testIocStatsApp will be built.
+MAKE_TEST_IOC_APP=YES
+ifeq '$(MAKE_TEST_IOC_APP)' 'YES'
+# =============================================================
+# Define the version of modules needed by
+# IOC apps or other Support apps - used by testIocStatsApp
+# =============================================================
+SNCSEQ = /opt/vsee/modules/seq/2.2.4
+endif
+
+EPICS_BASE=/opt/vsee/bases/3.16.1
+
+# End of file

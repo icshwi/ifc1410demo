@@ -1,0 +1,417 @@
+record(mbbo, "${PREFIX}:${CH_GRP_ID}-STAT") {
+    field(DESC, "Set local state")
+    field(DTYP, "asynInt32")
+    field(SCAN, "Passive")
+    field(OUT, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)StateMachine-setState")
+    field(ZRVL, 0)
+    field(ZRST, "UNKNOWN")
+    field(ONVL, 1)
+    field(ONST, "OFF")
+    field(TWVL, 2)
+    field(TWST, "SWITCHING_OFF")
+    field(THVL, 3)
+    field(THST, "INITIALIZING")
+    field(FRVL, 4)
+    field(FRST, "ON")
+    field(FVVL, 5)
+    field(FVST, "STOPPING")
+    field(SXVL, 6)
+    field(SXST, "STARTING")
+    field(SVVL, 7)
+    field(SVST, "RUNNING")
+    field(EIVL, 8)
+    field(EIST, "FAULT")
+}
+
+record(mbbi, "${PREFIX}:${CH_GRP_ID}-STAT-RB") {
+    field(DESC, "Get local state")
+    field(DTYP, "asynInt32")
+    field(SCAN, "I/O Intr")
+    field(PINI, "YES")
+    field(INP, "@asyn(${PREFIX}-${CH_GRP_ID}, 0) StateMachine-getState")
+    field(ZRVL, 0)
+    field(ZRST, "UNKNOWN")
+    field(ONVL, 1)
+    field(ONST, "OFF")
+    field(TWVL, 2)
+    field(TWST, "SWITCHING_OFF")
+    field(THVL, 3)
+    field(THST, "INITIALIZING")
+    field(FRVL, 4)
+    field(FRST, "ON")
+    field(FVVL, 5)
+    field(FVST, "STOPPING")
+    field(SXVL, 6)
+    field(SXST, "STARTING")
+    field(SVVL, 7)
+    field(SVST, "RUNNING")
+    field(EIVL, 8)
+    field(EIST, "FAULT")
+    field(EISV, "MAJOR")
+    field(FLNK, "${STAT_RB_FLNK=}")
+}
+
+record(longout, "${PREFIX}:${CH_GRP_ID}-SMNM") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "Passive")
+    field(OUT, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)nSamples")
+}
+
+record(longin, "${PREFIX}:${CH_GRP_ID}-SMNM-RB") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "I/O Intr")
+    field(PINI, "YES")
+    field(INP, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)nSamples-RB")
+}
+
+record(mbbo, "${PREFIX}:${CH_GRP_ID}-CLKS") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "Passive")
+    field(OUT, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)ClockSource")
+    field(ZRVL, 0)
+    field(ZRST, "Internal")
+    field(ONVL, 1)
+    field(ONST, "External")
+}
+
+record(mbbi, "${PREFIX}:${CH_GRP_ID}-CLKS-RB") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "I/O Intr")
+    field(PINI, "YES")
+    field(INP, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)ClockSource-RB")
+    field(ZRVL, 0)
+    field(ZRST, "Internal")
+    field(ONVL, 1)
+    field(ONST, "External")
+}
+
+record(ao, "${PREFIX}:${CH_GRP_ID}-CLKF") {
+    field(DESC, "")
+    field(DTYP, "asynFloat64")
+    field(SCAN, "Passive")
+    field(OUT, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)ClockFrequency")
+}
+
+record(ai, "${PREFIX}:${CH_GRP_ID}-CLKF-RB") {
+    field(DESC, "")
+    field(DTYP, "asynFloat64")
+    field(SCAN, "I/O Intr")
+    field(PINI, "YES")
+    field(INP, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)ClockFrequency-RB")
+}
+
+record(longout, "${PREFIX}:${CH_GRP_ID}-CLKD") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "Passive")
+    field(OUT, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)ClockDivisor")
+}
+
+record(longin, "${PREFIX}:${CH_GRP_ID}-CLKD-RB") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "I/O Intr")
+    field(PINI, "YES")
+    field(INP, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)ClockDivisor-RB")
+}
+
+record(waveform, "${PREFIX}:${CH_GRP_ID}-INFO") {
+    field(DESC, "")
+    field(DTYP, "asynInt8ArrayIn")
+    field(FTVL, "CHAR")
+    field(NELM, 512)
+    field(SCAN, "I/O Intr")
+    field(PINI, "YES")
+    field(INP, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)InfoMessage")
+}
+
+record(ao, "${PREFIX}:${CH_GRP_ID}-SRAT") {
+    field(DESC, "")
+    field(DTYP, "asynFloat64")
+    field(SCAN, "Passive")
+    field(OUT, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)SampleRate")
+}
+
+record(ai, "${PREFIX}:${CH_GRP_ID}-SRAT-RB") {
+    field(DESC, "")
+    field(DTYP, "asynFloat64")
+    field(SCAN, "I/O Intr")
+    field(PINI, "YES")
+    field(INP, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)SampleRate-RB")
+}
+record(longin, "${PREFIX}:${CH_GRP_ID}-TRGC-RB") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "I/O Intr")
+    field(PINI, "YES")
+    field(INP, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)TriggerCounter-RB")
+}
+
+record(longout, "${PREFIX}:${CH_GRP_ID}-TRGD") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "Passive")
+    field(OUT, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)TriggerDelay")
+}
+
+record(longin, "${PREFIX}:${CH_GRP_ID}-TRGD-RB") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "I/O Intr")
+    field(PINI, "YES")
+    field(INP, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)TriggerDelay-RB")
+}
+
+record(longout, "${PREFIX}:${CH_GRP_ID}-TRGR") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "Passive")
+    field(OUT, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)TriggerRepeat")
+}
+
+record(longin, "${PREFIX}:${CH_GRP_ID}-TRGR-RB") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "I/O Intr")
+    field(PINI, "YES")
+    field(INP, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)TriggerRepeat-RB")
+}
+
+#record(mbbo, "${PREFIX}:${CH_GRP_ID}-TRGS") {
+#    field(DESC, "")
+#    field(DTYP, "asynInt32")
+#    field(SCAN, "Passive")
+#    field(OUT, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)TriggerSource")
+#    field(ZRVL, 0)
+#    field(ZRST, "CH-1")
+#    field(ONVL, 1)
+#    field(ONST, "CH-2")
+#    field(TWVL, 2)
+#    field(TWST, "CH-3")
+#    field(THVL, 3)
+#    field(THST, "CH-4")
+#    field(FRVL, 4)
+#    field(FRST, "CH-5")
+#    field(FVVL, 5)
+#    field(FVST, "CH-6")
+#    field(SXVL, 6)
+#    field(SXST, "CH-7")
+#    field(SVVL, 7)
+#    field(SVST, "CH-8")
+#    field(EIVL, 8)
+#    field(EIST, "EXT-GPIO")
+#    field(NIVL, 9)
+#   field(NIST, "EXT-VMEIO")
+#    field(TEVL, 10)
+#    field(TEST, "Software")
+#}
+
+# record(mbbi, "${PREFIX}:${CH_GRP_ID}-TRGS-RB") {
+#     field(DESC, "")
+#     field(DTYP, "asynInt32")
+#     field(SCAN, "I/O Intr")
+#     field(PINI, "YES")
+#     field(INP, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)TriggerSource-RB")
+#     field(ZRVL, 0)
+#     field(ZRST, "CH-1")
+#     field(ONVL, 1)
+#     field(ONST, "CH-2")
+#     field(TWVL, 2)
+#     field(TWST, "CH-3")
+#     field(THVL, 3)
+#     field(THST, "CH-4")
+#     field(FRVL, 4)
+#     field(FRST, "CH-5")
+#     field(FVVL, 5)
+#     field(FVST, "CH-6")
+#     field(SXVL, 6)
+#     field(SXST, "CH-7")
+#     field(SVVL, 7)
+#     field(SVST, "CH-8")
+#     field(EIVL, 8)
+#     field(EIST, "EXT-GPIO")
+#     field(NIVL, 9)
+#     field(NIST, "EXT-VMEIO")
+#     field(TEVL, 10)
+#     field(TEST, "Software")
+# }
+
+# -------------------------------------------------------
+# First version only with software or backplane trigger
+# -------------------------------------------------------
+record(mbbo, "${PREFIX}:${CH_GRP_ID}-TRGS") {
+   field(DESC, "ADC Acquisition Trigger")
+   field(DTYP, "asynInt32")
+   field(SCAN, "Passive")
+   field(OUT, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)TriggerSource")
+   field(ZRVL, 0)
+   field(ZRST, "Software")
+   field(ONVL, 1)
+   field(ONST, "FP-GPIO")
+   field(TWVL, 2)
+   field(TWST, "AMC_RX_17")
+   field(THVL, 3)
+   field(THST, "AMC_RX_18")
+   field(FRVL, 4)
+   field(FRST, "AMC_RX_19")
+   field(FVVL, 5)
+   field(FVST, "AMC_RX_20")
+   field(SXVL, 6)
+   field(SXST, "AMC_TX_17")
+   field(SVVL, 7)
+   field(SVST, "AMC_TX_18")
+   field(EIVL, 8)
+   field(EIST, "AMC_TX_19")
+   field(NIVL, 9)
+   field(NIST, "AMC_TX_20")
+   field(TEVL, 10)
+   field(TEST, "SIM_TRIG_MAN")
+   field(ELVL, 11)
+   field(ELST, "SIM_TRIG_AUTO")
+}
+   
+record(mbbi, "${PREFIX}:${CH_GRP_ID}-TRGS-RB") {
+    field(DESC, "ADC Acquisition Trigger Read-back")
+    field(DTYP, "asynInt32")
+    field(SCAN, "I/O Intr")
+    field(PINI, "YES")
+    field(INP, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)TriggerSource-RB")
+    field(ZRVL, 0)
+    field(ZRST, "Software")
+    field(ONVL, 1)
+    field(ONST, "FP-GPIO")
+    field(TWVL, 2)
+    field(TWST, "AMC_RX_17")
+    field(THVL, 3)
+    field(THST, "AMC_RX_18")
+    field(FRVL, 4)
+    field(FRST, "AMC_RX_19")
+    field(FVVL, 5)
+    field(FVST, "AMC_RX_20")
+    field(SXVL, 6)
+    field(SXST, "AMC_TX_17")
+    field(SVVL, 7)
+    field(SVST, "AMC_TX_18")
+    field(EIVL, 8)
+    field(EIST, "AMC_TX_19")
+    field(NIVL, 9)
+    field(NIST, "AMC_TX_20")
+    field(TEVL, 10)
+    field(TEST, "SIM_TRIG_MAN")
+    field(ELVL, 11)
+    field(ELST, "SIM_TRIG_AUTO")
+}
+
+#------------------------------------------------------------
+
+# record(ao, "${PREFIX}:${CH_GRP_ID}-TRGT") {
+#     field(DESC, "")
+#     field(DTYP, "asynFloat64")
+#     field(SCAN, "Passive")
+#     field(OUT, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)TriggerThreshold")
+# }
+
+# record(ai, "${PREFIX}:${CH_GRP_ID}-TRGT-RB") {
+#     field(DESC, "")
+#     field(DTYP, "asynFloat64")
+#     field(SCAN, "I/O Intr")
+#     field(PINI, "YES")
+#     field(INP, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)TriggerThreshold-RB")
+# }
+
+record(mbbo, "${PREFIX}:${CH_GRP_ID}-TRGE") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "Passive")
+    field(OUT,  "@asyn(${PREFIX}-${CH_GRP_ID}, 0)TriggerEdge")
+    field(ZRVL, 0)
+    field(ZRST, "Rising Edge")
+    field(ONVL, 1)
+    field(ONST, "Falling Edge")
+}
+
+record(mbbi, "${PREFIX}:${CH_GRP_ID}-TRGE-RB") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "I/O Intr")
+    field(PINI, "YES")
+    field(INP,  "@asyn(${PREFIX}-${CH_GRP_ID}, 0)TriggerEdge-RB")
+    field(ZRVL, 0)
+    field(ZRST, "Rising Edge")
+    field(ONVL, 1)
+    field(ONST, "Falling Edge")
+}
+
+record(longout, "${PREFIX}:${CH_GRP_ID}-DWDE") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "Passive")
+    field(OUT, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)Decimation")
+}
+
+record(longin, "${PREFIX}:${CH_GRP_ID}-DWDE-RB") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "I/O Intr")
+    field(PINI, "YES")
+    field(INP, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)Decimation-RB")
+}
+
+
+record(longout, "${PREFIX}:${CH_GRP_ID}-DWAV") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "Passive")
+    field(OUT, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)Averaging")
+}
+
+record(longin, "${PREFIX}:${CH_GRP_ID}-DWAV-RB") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "I/O Intr")
+    field(PINI, "YES")
+    field(INP, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)Averaging-RB")
+}
+
+###############################################################
+
+record(longout, "${PREFIX}:${CH_GRP_ID}-SIMTRGAUTO") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "Passive")
+    field(OUT, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)SimTrigAuto")
+}
+
+record(longin, "${PREFIX}:${CH_GRP_ID}-SIMTRGAUTO-RB") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "I/O Intr")
+    field(PINI, "YES")
+    field(INP, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)SimTrigAuto-RB")
+}
+
+record(longout, "${PREFIX}:${CH_GRP_ID}-SIMTRGDIV") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "Passive")
+    field(OUT, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)SimTrigDiv")
+}
+
+record(longin, "${PREFIX}:${CH_GRP_ID}-SIMTRGDIV-RB") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "I/O Intr")
+    field(PINI, "YES")
+    field(INP, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)SimTrigDiv-RB")
+}
+
+record(longout, "${PREFIX}:${CH_GRP_ID}-SIMTRGMAN") {
+    field(DESC, "")
+    field(DTYP, "asynInt32")
+    field(SCAN, "Passive")
+    field(OUT, "@asyn(${PREFIX}-${CH_GRP_ID}, 0)SimTrigMan")
+}

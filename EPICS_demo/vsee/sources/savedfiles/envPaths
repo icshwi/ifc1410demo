@@ -1,0 +1,5 @@
+epicsEnvSet("IOC","iocifc14edrv")
+epicsEnvSet("TOP","/opt/vsee/iocs/ifc14edrv")
+epicsEnvSet("NDS3EPICS","/opt/vsee/modules/nds3epics/1.0.0")
+epicsEnvSet("ASYN","/opt/vsee/modules/asyn/4.31")
+epicsEnvSet("EPICS_BASE","/opt/vsee/bases/3.16.1")
