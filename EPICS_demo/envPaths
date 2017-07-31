@@ -1,0 +1,8 @@
+epicsEnvSet("IOC","iocifc14edrv")
+epicsEnvSet("TOP","/opt/vsee/iocs/ifc14edrv")
+epicsEnvSet("TSCLIB","/opt/vsee/external/tsclib/1.2.1")
+epicsEnvSet("NDS3","/opt/vsee/external/nds3/3.0.0")
+epicsEnvSet("ASYN","/opt/vsee/modules/asyn/4.31")
+epicsEnvSet("NDS3EPICS","/opt/vsee/external/nds3epics/1.0.0")
+epicsEnvSet("IFCDAQDRV2","/opt/vsee/external/ifcdaqdrv2/0.0.1")
+epicsEnvSet("EPICS_BASE","/opt/vsee/bases/3.16.1")
